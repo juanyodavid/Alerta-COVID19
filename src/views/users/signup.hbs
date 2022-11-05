@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-5 mx-auto">
+
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item"><a class="nav-link" href="/users/signin">Iniciar sesión</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="true" href="#">Crear usuario</a></li>
+                    <li class="nav-item"><a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Escanear QR</a></li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <form action="/users/signup" method="POST">
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" value="{{email}}" placeholder="Correo" required>
+                    </div><br>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" value="{{password}}" placeholder="Contraseña" required>
+                    </div><br>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password_confirm" value="{{password_confirm}}" placeholder="Confirmar contraseña">
+                    </div><br>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="name" value="{{name}}" placeholder="Su nombre" required>
+                    </div><br>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="celular" value="{{celular}}" placeholder="Celular">
+                    </div><br>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"><i class="far fa-plus-square"></i>  Crear</button>
+                    </div>
+                </form>
+            
+            </div>
+        </div>
+    </div>
+</div>

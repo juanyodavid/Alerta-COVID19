@@ -1,0 +1,62 @@
+<div class="col-md-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h3>Editar un local</h3>
+        </div>
+        <div class="card-body">
+            <form action="/local/local_edit/{{local.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="_method" value="PUT">
+                <div class="form-group">
+                    <input type="text" name="lugar" class="form-control" placeholder="Nombre del lugar"
+                        value="{{local.lugar}}" autofocus>
+                </div>
+                <br>
+                <div class="form-group">
+
+                    <div class="col-md-4 mx-auto" id="map-canvas">
+                    </div>
+                    <input type="text" name="ubicacion" id="ubicacion" class="form-control"
+                        placeholder="Ubicación del lugar" value="{{local.ubicacion}}">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="text" name="propietario" class="form-control" value="{{local.propietario}}"
+                        placeholder="Nombre del propietario">
+                </div>
+                <br>
+                <div class="form-group">
+                    <button class="btn btn-outline-success " type="submit">Guardar</button>
+                    <a href="/local/vista" class="btn btn-outline-info">Ver mis locales</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script> var marker, lat, lng;
+    var ubi;
+    function initialize() {
+        var myLatLng = new google.maps.LatLng(41.5, 2),
+            myOptions = {
+                zoom: 4,
+                center: myLatLng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            },
+            map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
+        marker = new google.maps.Marker({ position: myLatLng, map: map, draggable: true });
+        google.maps.event.addListener(marker, 'dragend', update);
+      //  console.log("se ejecuto el mapa");
+        marker.setMap(map);
+    }
+
+    function update() {
+        var path = marker.getPosition();
+        lat = path.lat();
+        lng = path.lng()
+        ubi = lat + "," + lng
+        document.getElementById("ubicacion").value = ubi;
+
+    }
+  //  console.log(ubi);
+
+    initialize();
+</script>

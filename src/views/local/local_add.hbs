@@ -1,0 +1,67 @@
+{{#each correcto}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+
+    {{text}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/each}}
+
+<div class="col-md-4 mx-auto">
+    <div class="card">
+        <div class="card-header">
+            <h3>Agregar un local</h3>
+        </div>
+        <div class="card-body">
+            <form action="/local/local_add" method="POST">
+                <div class="form-group">
+                    <input type="text" name="lugar" class="form-control" placeholder="Nombre del lugar" autofocus>
+                </div>
+                <br>
+                <div class="form-group">
+
+<div class="col-md-4 mx-auto" id="map-canvas">
+</div>
+                    <input type="text" name="ubicacion" id="ubicacion" class="form-control"
+                        placeholder="Ubicación del lugar">
+                </div>
+                <br>
+                <div class="form-group">
+                    <input type="text" name="propietario" class="form-control" placeholder="Nombre del propietario">
+                </div>
+                <br>
+                <div class="form-group">
+                    <button class="btn btn-outline-success " type="submit">Guardar</button>
+                    <a href="/local/vista" class="btn btn-outline-info">Ver mis locales</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script> var marker, lat, lng;
+    var ubi;
+    function initialize() {
+        var myLatLng = new google.maps.LatLng(41.5, 2),
+            myOptions = {
+                zoom: 4,
+                center: myLatLng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            },
+            map = new google.maps.Map(document.getElementById('map-canvas'), myOptions);
+        marker = new google.maps.Marker({ position: myLatLng, map: map, draggable: true });
+        google.maps.event.addListener(marker, 'dragend', update);
+       // console.log("se ejecuto el mapa");
+        marker.setMap(map);
+    }
+
+    function update() {
+        var path = marker.getPosition();
+        lat = path.lat();
+        lng = path.lng()
+        ubi = lat + "," + lng
+        document.getElementById("ubicacion").value = ubi;
+
+    }
+  //  console.log(ubi);
+
+    initialize();
+</script>

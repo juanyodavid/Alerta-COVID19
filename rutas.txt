@@ -1,0 +1,11 @@
+/
+    index.hbs
+    /about 
+        about.hbs
+/notes
+
+/users
+    /signin
+        signin.hbs
+    /signout
+        signout.hbs

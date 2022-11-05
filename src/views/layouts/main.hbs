@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Alerta!Covid-19 " />
+    {{!-- <meta property="og:url" content="https://alertcovid.com.py/" /> --}}
+    <meta property="og:image" content="/image/img.jpg" />
+    <meta property="og:image" content="https://alertcovid.com.py/51x51.jpg" />
+    <meta property="og:image" content="https://alertcovid.com.py/31x31.jpg" />
+    <meta property="og:image" content="https://alertcovid.com.py/20x20.jpg" />
+    {{!-- boostrap 4 --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    {{!-- custom css --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+
+    <link rel="stylesheet" href="/fontawesome-free-5.15.3-web/css/all.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Alert Covid</title>
+</head>
+
+<body>
+    {{>navigation}}
+    <main class="container p-4">
+        {{>messages}}
+        {{>errors}}
+        {{{body}}}
+    </main>
+
+    <p>Footer</p>
+</body>
+
+</html>

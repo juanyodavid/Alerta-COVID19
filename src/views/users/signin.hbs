@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-5 mx-auto">
+
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item"><a class="nav-link active" aria-current="true" href="#">Iniciar sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/users/signup">Crear usuario</a></li>
+                    <li class="nav-item"><a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Escanear QR</a></li>
+                </ul>
+            </div>
+            <img src="/images/logo.png" class="mx-auto d-block m-4 logo" alt="logito">
+            <div class="card-body">
+                <form action="/users/signin" method="POST">
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" value="{{email}}" placeholder="Correo" required>
+                    </div><br>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" value="{{password}}" placeholder="Contraseña" required>
+                    </div><br>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt"></i>  Iniciar sesión</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
